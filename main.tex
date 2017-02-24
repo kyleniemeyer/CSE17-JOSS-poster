@@ -37,7 +37,7 @@
 % \makeatletter
 % \def\TP@titlegraphictotitledistance{-4cm}
 % \settitle{ \centering \vbox{
-% \@titlegraphic \\ [\TP@titlegraphictotitledistance] 
+% \@titlegraphic \\ [\TP@titlegraphictotitledistance]
 % \centering
 % \color{titlefgcolor} {\bfseries \Huge \@title \par} % add \sc for smallcaps
 % \vspace*{2em}
@@ -67,12 +67,12 @@
 \newlength\LogoSep
 \setlength\LogoSep{-2cm}
 
-\insertlogoi[width=18cm]{OSU-color-horz}
-\insertlogoii[width=18cm]{UConn-color-horz}
+% \insertlogoi[width=18cm]{OSU-color-horz}
+% \insertlogoii[width=18cm]{UConn-color-horz}
 
 \def\TP@titlegraphictotitledistance{-4cm}
 \settitle{ \centering \vbox{
-%\@titlegraphic \\ [\TP@titlegraphictotitledistance] 
+%\@titlegraphic \\ [\TP@titlegraphictotitledistance]
 \centering
 \color{titlefgcolor} {\bfseries \Huge \@title \par} % add \sc for smallcaps
 \vspace*{2em}
@@ -107,13 +107,13 @@
         (title)
         {\parbox{\TP@titlewidth-2\TP@titleinnersep}{\TP@maketitle}};
 
-    \node[inner sep=0pt,anchor=west] 
-      at ([xshift=-\LogoSep]title.west)
-      {\@insertlogoi};
-
-    \node[inner sep=0pt,anchor=east] 
-      at ([xshift=\LogoSep]title.east)
-      {\@insertlogoii};
+    % \node[inner sep=0pt,anchor=west]
+    %   at ([xshift=-\LogoSep]title.west)
+    %   {\@insertlogoi};
+    %
+    % \node[inner sep=0pt,anchor=east]
+    %   at ([xshift=\LogoSep]title.east)
+    %   {\@insertlogoii};
 
     % Settings for blocks
     \normalsize
@@ -124,28 +124,27 @@
 \setlength{\columnsep}{2cm}
 
 
-\title{\parbox{0.7\linewidth}{\centering Minisymposterium: The Journal of Open Source Software}}
+\title{\parbox{0.7\linewidth}{\centering The Journal of Open Source Software}}
 
 \author[1]{Arfon M.\ Smith}
-% \author[2]{Lorena A.\ Barba}
-% \author[3]{George Githinji}
-% \author[4]{Melissa Gymrek}
-% \author[5]{Kathryn Huff}
-% \author[6]{Daniel S.\ Katz}
-% \author[7]{Christopher R.\ Madan}
-% \author[8]{Abigail Cabunoc Mayes}
-% \author[9]{Kevin M.\ Moerman}
-% \author[10]{Kyle E.\ Niemeyer}
-% \author[11]{Pjotr Prins}
-% \author[12]{Karthik Ram}
-% \author[13]{Tracy K.\ Teal}
-% \author[14]{Jake Vanderplas}
+\author[2]{Lorena A.\ Barba}
+\author[3]{George Githinji}
+\author[4]{Melissa Gymrek}
+\author[5]{Kathryn Huff}
+\author[6]{Daniel S.\ Katz}
+\author[7]{Christopher R.\ Madan}
+\author[8]{Abigail Cabunoc Mayes}
+\author[9]{Kevin M.\ Moerman}
+\author[10]{Kyle E.\ Niemeyer}
+\author[11]{Pjotr Prins}
+\author[12]{Karthik Ram}
+\author[13]{Ariel Rokem}
+\author[14]{Tracy K.\ Teal}
+\author[15]{Jake Vanderplas}
 
-\affil[1]{School of Mechanical, Industrial, and Manufacturing Engineering, Oregon State University}
+\affil[1--15]{\textit{Affiliations listed below}}
 
-%\affil[10]{School of Mechanical, Industrial, and Manufacturing Engineering, Oregon State University}
-
-\institute{\href{mailto:kyle.niemeyer@oregonstate.edu}{\nolinkurl{kyle.niemeyer@oregonstate.edu}}}
+\institute{\url{http://joss.theoj.org/}}
 
 \date{}
 
@@ -159,160 +158,143 @@
 
 \begin{columns} % See Section 4.4
     \column{0.25} % See Section 4.4
-    \block{Introduction \& Motivation}{
-    This project is developing {\fontfamily{pag}\selectfont \textbf{SLACKHA}}: a software library for accelerating the computation of chemical kinetics terms in simulations of reactive fluid flows, optimized for hybrid CPU\slash GPU processing architectures.
-    \vspace{0.75em}
-    
-    The motivations behind the project are two-pronged:
-    \begin{itemize}
-        \item The prohibitive computational cost of incorporating detailed, accurate models of chemical kinetics, and 
-        \item The trend of high-performance computing clusters towards a hybrid processing paradigm using massively parallel accelerators like GPUs.
-    \end{itemize}
-    \vspace{0.5em}
-    Reactive-flow simulations pose high computational expenses when using detailed chemical kinetic models, primarily due to
-    \begin{enumerate}
-        \item The large---and ever-increasing---model sizes, depicted in Fig.~\ref{fig:sizes}, and
-        \item Stiffness encountered when integrating the ordinary differential equations for chemical kinetics, as shown in Fig.~\ref{fig:stiffness}.
-    \end{enumerate}
-    
-    % \begin{minipage}{0.48\linewidth}
-    % \centering
-    % \begin{tikzfigure}
-    % \includegraphics[width=\linewidth]{mechanism-survey}
-    % \end{tikzfigure}
-    % \captionof{figure}{Sizes of detailed kinetic models for hydrocarbon oxidation.}\label{fig:sizes}
-    % \end{minipage}
-    % \hfill
-    % \begin{minipage}{0.49\linewidth}
-    % \centering
-    % \begin{tikzfigure}
-    % \includegraphics[width=\linewidth]{species-timescales}
-    % \end{tikzfigure}
-    % \vspace{0.25em}
-    % \captionof{figure}{Characteristic species creation timescales for CH$_4$ oxidation.}\label{fig:stiffness}
-    % \end{minipage}
-    
+    \block{JOSS: Journal of Open Source Software}{
+
+    \begin{tikzfigure}
+    \includegraphics[width=0.95\linewidth]{JOSS-logo}
+    \end{tikzfigure}
+
     \vspace{1em}
-    
-    {\fontfamily{pag}\selectfont SLACKHA} will consist of components that can cluster chemically similar cells and detect local stiffness of chemical kinetics governing equations and adaptively select the most efficient integrator based on available hardware.
-    Improved computational performance will be demonstrated by coupling with commercial and open-source computational fluid dynamics software.
-    }
-    
-    \column{0.5}
-    \block{Components of {\fontfamily{pag}\selectfont SLACKHA}}{
-    
-    % \begin{tikzfigure}
-    % \includegraphics[width=0.75\linewidth]{SLACKHA-components}
-    % \end{tikzfigure}
-    % \captionof{figure}{Functionality of {\fontfamily{pag}\selectfont SLACKHA} with all components and connections.}
-    
-    }
-    
-    \column{0.25}
-    \block{Project Plan}{
-    The three-year project plan for the development {\fontfamily{pag}\selectfont SLACKHA} is a collaborative effort between Oregon State University and the University of Connecticut, with professional software development contributions from Dr.~Christopher Stone of Computational Science \& Engineering.
-    
-    % \begin{tikzfigure}
-    % \includegraphics[width=\linewidth]{NSF-SI2-project-timeline}
-    % \end{tikzfigure}
-    % \captionof{figure}{Three-year plan for {\fontfamily{pag}\selectfont SLACKHA} development.}
-    
+
+    The Journal of Open Source Software (JOSS) is a developer-friendly journal
+    for research software packages.
+
     \vspace{2em}
-    
-    Although case studies will be performed using combustion phenomena, other reacting-flow communities will be engaged, including astrophysics, atmospheric chemistry, nuclear reactions, and biochemical networks.
+
+    Requirements for submission:
+    \begin{itemize}
+        \item Your software should be open source as per \href{https://opensource.org/osd}{the OSI definition}
+        \item Your software should have a research application (i.e., be research software)
+        \item You should be a major contributor to the software you are submitting
+        \item Your software should be a significant contribution to the available open-source software that
+        either enables some new research challenges to be addressed or makes addressing
+        research challenges significantly better (e.g., faster, easier, simpler)
+        \item Your software should be feature complete---no half-baked solutions
+    \end{itemize}
+
+    } % end block
+
+    \column{0.5}
+    \block{Publication process}{
+
+    % {\large If you've already licensed your code and have good documentation
+    % then we expect that it should take \textbf{less than an hour} to prepare and
+    % submit your paper to JOSS.}
+
+    \begin{tikzfigure}
+    \includegraphics[width=0.75\linewidth]{JOSS-statement}
+    \end{tikzfigure}
+
+    \begin{tikzfigure}
+    \includegraphics[width=0.66\linewidth]{JOSS-flowchart}
+    \end{tikzfigure}
+
     }
+
+    \column{0.25}
+    \block{Paper statistics}{
+    %
+    \begin{tikzfigure}
+    \includegraphics[width=0.95\linewidth]{JOSS-submitted-papers}
+    \end{tikzfigure}
+    \captionof*{figure}{Number of papers \textbf{submitted} since JOSS's creation.
+    Papers currently under review: 31}
+    %
+    \begin{tikzfigure}
+    \includegraphics[width=0.95\linewidth]{JOSS-accepted-papers}
+    \end{tikzfigure}
+    \captionof*{figure}{Number of papers \textbf{accepted} since JOSS's creation.
+    Total papers published: 76}
+    %
+    } % end block
+    %
 \end{columns}
 
-% bottom 
+% bottom
 \begin{columns}
     \column{0.25}
-    \block{Basis}{
-    Our approach to accelerating chemical kinetics relies on the operator-splitting or fractional-step technique to decouple the chemistry terms from the transport terms and other physical processes. This results in a large system of independent ODEs that need to be integrated each time step:
-    
-    % \begin{tikzfigure}
-    % \includegraphics[width=\linewidth]{chemistry-decoupling}
-    % \end{tikzfigure}
-    % \captionof{figure}{Depiction of decoupling of chemical kinetics ODEs in reactive-flow simulations using operator splitting.\textsuperscript{a}}
+    \block{Business model}{
+
+    JOSS is an open-access journal \textbf{committed to running
+    at minimal costs, with zero publication fees (article processing charges) or subscription
+    fees}. With volunteer effort from our editorial board, community reviewers, donations, and
+    minimal infrastructure costs we believe JOSS can remain a free community service.
+
+    \vspace{0.5em}
+
+    Operating costs:
+    \begin{itemize}[leftmargin=1cm,topsep=0pt,noitemsep]
+        \item Annual \href{http://www.crossref.org/02publishers/20pub_fees.html}{Crossref membership}: \$275 / year
+        \item JOSS paper DOIs: \$1 / accepted paper
+        \item JOSS website hosting (Heroku): \$19 / month
+    \end{itemize}
+
+    \vspace{0.5em}
+
+    \textbf{Cost per paper:} \$3.50 (assuming 200 papers per year)
+
+    } % end block
+
+    \column{0.5}
+    \block{Editorial board affiliations}{
+    \begin{multicols}{2}
+    {
+    \begin{enumerate}[leftmargin=1cm,topsep=0pt,noitemsep]
+        \item Data Science Mission Office, Space Telescope Science Institute
+        \item Mechanical and Aerospace Engineering, George Washington University
+        \item KEMRI--Wellcome Trust Research Programme
+        \item Departments of Computer Science and Engineering \& Medicine, University of California, San Diego
+        \item Department of Nuclear, Plasma, and Radiological Engineering, University of Illinois at Urbana--Champaign
+        \item NCSA, CS, GSLIS, ECE, University of Illinois at Urbana--Champaign
+        \item Department of Psychology, Boston College
+        \item Mozilla Foundation
+        \item MIT Media Lab
+        \item School of Mechanical, Industrial, and Manufacturing Engineering, Oregon State University
+        \item Health Science Center, University of Tennessee, \& University Medical Centre Utrecht
+        \item Institute for Data Science, University of California, Berkeley
+        \item eScience Institute, University of Washington
+        \item Data Carpentry \& Michigan State University
+        \item eScience Institute, University of Washington
+    \end{enumerate}
+    }
+    \end{multicols}
     }
 
     \column{0.25}
-    \block{Products}{
-    \begin{enumerate}[leftmargin=1cm,topsep=0pt]
-        
-        \item NJ Curtis \& KE Niemeyer. \texttt{accelerInt}. GitHub: \url{https://github.com/SLACKHA/accelerInt}.
-        v1.0 (2017): \doi{10.5281/zenodo.230256}
-        
-        \item KE Niemeyer \& NJ Curtis. \texttt{pyJac}. GitHub: \url{https://github.com/SLACKHA/pyJac}.
-        v1.0.2 (2017): \doi{10.5281/zenodo.251144}
-        
-        %\item Andrew Alferman \& Kyle E.\ Niemeyer. ``Investigation of stiffness detection metrics for chemical kinetics.'' In preparation.
-        
-        \item CP Stone, AT Alferman, \& KE Niemeyer.
-        ``Accelerating finite-rate chemical kinetics with coprocessors: comparing vectorization methods on GPUs, MICs, and CPUs.'' (2017) In preparation, available via {\tt \href{http://arxiv.org/abs/1608.05794}{arXiv:1608.05794} [physics.comp-ph]}.
-        
-        \item KE Niemeyer, NJ Curtis, \& CJ Sung. ``\texttt{pyJac}: analytical Jacobian generator for chemical kinetics.'' (2017) \textit{Computer Physics Communications}, in press. \doi{10.1016/j.cpc.2017.02.004} 
-        
-        \item NJ Curtis, KE Niemeyer, \& CJ Sung. ``An investigation of GPU-based stiff chemical kinetics integration methods.'' (2017) \textit{Combustion \& Flame}, in press. \doi{10.1016/j.combustflame.2017.02.005}
-        %
-        %\item Kyle E.\ Niemeyer, Nicholas J.\ Curtis, and Chih-Jen Sung. ``Initial investigation of \texttt{pyJac}: an analytical Jacobian generator for chemical kinetics.'' Fall 2015 Meeting of the Western States Section of the Combustion Institute, Provo, UT, USA. 5--6 October 2015. \href{https://dx.doi.org/10.6084/m9.figshare.2075515.v1}{\nolinkurl{doi:10.6084/m9.figshare.2075515.v1}}
-    \end{enumerate}
-    %\vspace{0.1em}
+    \block{Further Information}{
+
+    {\colorlet{innerblocktitlebgcolor}{GoogleBlue}
+    \colorlet{innerblocktitlefgcolor}{white}
+    \innerblock{Journal home}{\centering{\url{http://joss.theoj.org/}}}
+    \innerblock{Location of reviews}{\centering{\url{https://github.com/openjournals/joss-reviews}}}
+    %\innerblock{JOSS source code}{\centering{\url{https://github.com/openjournals/joss}}}
     }
-    
-    \column{0.25}
-    \block{Acknowledgements}{
-    This work is supported by NSF grants ACI-1535065 and ACI-1534688. We also acknowledge the efforts of graduate research assistants Nicholas Curtis (UConn) and Andrew Alferman (Oregon State), and undergraduate research assistant Parker Clayton (Oregon State).
-    \\ \\
-    \begin{minipage}{0.42\linewidth}
+    %
+    \vspace{1em}
+    %
+    \begin{minipage}{0.4\linewidth}
     \begin{tikzfigure}
     \includegraphics[width=\linewidth]{cc-by}
     \end{tikzfigure}
     \end{minipage}
     \hfill
     \begin{minipage}{0.55\linewidth}
-    This work is licensed under a Creative Commons Attribution 4.0 International License. To view a copy of this license, visit \url{http://creativecommons.org/licenses/by/4.0/}.
+    This work is licensed under a Creative Commons Attribution 4.0 International License:
+    \url{http://creativecommons.org/licenses/by/4.0/}.
     \end{minipage}
-    
-    \vspace{2.5em}
-    \innerblock{Image credits}{
-    \small{
-    a: Modified from \url{https://www.olcf.ornl.gov/wp-content/uploads/2011/06/Oefelein2_web.png}, 
-    b: Weber et al., \emph{Combust Flame} (2014) \doi{10.1016/j.combustflame.2014.01.018}
-    c: Intel Skylake CPU \url{http://wimages.vr-zone.net/2015/04/Intel.jpg}
-    d: NVIDIA Tesla K40 \url{http://www.wiredzone.com/mmenglish/Images/actual}
-    e: Intel Xeon Phi \url{https://streamcomputing.eu/wp-content/uploads/2012/11/intel-xeon-phi-card.jpg}
-    }}
-    }
-    
-    \column{0.25}
-    \block{Further Information}{
-    {\colorlet{innerblocktitlebgcolor}{OSUorange}
-    \colorlet{innerblocktitlefgcolor}{white}
-    \innerblock{Niemeyer Research Group (OSU)}{\centering{\url{http://kyleniemeyer.com}}}
-    }
-    {\colorlet{innerblocktitlebgcolor}{UConnBlue}
-    \colorlet{innerblocktitlefgcolor}{white}
-    \innerblock{Combustion Diagnostics Laboratory (UConn)}{\centering{\url{http://combdiaglab.engr.uconn.edu}}}
-    }
-    
-    \vspace{2.5em}
-    
-    \begin{minipage}{\linewidth}
-    \centering
-    {\fontfamily{pag}\selectfont 
-    \Huge
-    \textbf{SLACKHA}
-    }
-    \end{minipage}
-    \vspace{1em}
-    
-    {\colorlet{innerblocktitlebgcolor}{GoogleBlue}
-    \colorlet{innerblocktitlefgcolor}{white}
-    \innerblock{Project discussion forum}{\centering{\url{https://groups.google.com/d/forum/slackha-users}}}
-    }
-    \innerblock{Project homepage}{\centering{\url{http://slackha.github.io/}}}
-    }
-    
+
+    } % end further information block
+
 \end{columns}
 
 
